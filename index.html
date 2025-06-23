@@ -209,17 +209,127 @@
                     <p><strong>THATS WHERE WE COME IN!</strong></p>
                 </div>
 
-                <div class="about-card fade-in">
+                <!-- <div class="about-card fade-in">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>VENUE INFORMATION</h3>
                     <h4>Tahamoana Farm</h4>
                     <h4>566 Cove rd Waipu</h4>
                     <p>Tahamoana farm has been operating as an outdoor venue for around 3 years. Looking out over the Hen and Chicks, sail rock and the gorgeous Bream bay it offers amazing views. The performance area has been designed to blend in to the native forest and planted palms creating an organic and peaceful atmosphere for the natural outdoor amphitheater.</p>
                     <p>Viewing areas have been cleverly sculpted to create several layers and depths which provides many viewing perspectives to the stage. New Ablution blocks have been constructed recently, and larger events will have additional facilities added for your comfort and convenience.</p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section id="venue" class="section venue">
+        <div class="container">
+            <h2 class="section-title">Our Stunning Venue</h2>
+            
+            <div class="venue-intro fade-in">
+                <h3>Tahamoana Farm - Where Every Event Becomes Unforgettable</h3>
+                <p>Nestled on the picturesque Cove Road in Waipu, Tahamoana Farm offers breathtaking views over the Hen and Chicks Islands and the pristine waters of Bream Bay. The versatile outdoor venue seamlessly blends natural beauty with thoughtful design, creating the perfect backdrop for any celebration.</p>
+                <p>Whether you're planning an intimate wedding ceremony, a milestone birthday celebration, a corporate event, or a large-scale concert, our venue adapts to your vision. The natural amphitheater setting provides excellent acoustics and sightlines, while multiple viewing areas ensure every guest has the perfect vantage point.</p>
+            </div>
+
+            <div class="venue-features fade-in">
+                <h3>Perfect For All Your Special Occasions</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-music"></i>
+                        <h4>Live Concerts & Festivals</h4>
+                        <p>Professional stage setup with excellent acoustics in our natural amphitheater</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-heart"></i>
+                        <h4>Weddings & Ceremonies</h4>
+                        <p>Romantic ocean views and native forest create an enchanting atmosphere</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h4>Birthday Celebrations</h4>
+                        <p>Multiple spaces accommodate intimate gatherings to large milestone parties</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Corporate Events</h4>
+                        <p>Professional setting with modern facilities for team building and conferences</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Private Functions</h4>
+                        <p>Flexible spaces perfect for family reunions, anniversaries, and special celebrations</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Community Events</h4>
+                        <p>Supporting local causes with space for fundraisers and community gatherings</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="venue-gallery fade-in">
+                <h3>Experience the Beauty of Tahamoana Farm</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openGallery(0)">
+                        <img src="img/venue/venue_1.jpg" alt="Tahamoana Farm image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openGallery(1)">
+                        <img src="img/venue/venue_2.jpg" alt="Tahamoana Farm image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openGallery(2)">
+                        <img src="img/venue/venue_3.jpg" alt="Tahamoana Farm image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openGallery(3)">
+                        <img src="img/venue/venue_4.jpg" alt="Tahamoana Farm image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openGallery(4)">
+                        <img src="img/venue/venue_5.jpg" alt="Tahamoana Farm image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openGallery(5)">
+                        <img src="img/venue/venue_6.jpg" alt="Tahamoana Farm image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGallery()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-navigation">
+                <button class="nav-btn prev-btn" onclick="previousImage()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next-btn" onclick="nextImage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="image-counter">
+                <span id="imageCounter">1 / 7</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact">
@@ -378,6 +488,72 @@
                 mobileMenu.classList.remove('active');
             }
         });
+    </script>
+
+    <script>
+    // Gallery functionality
+    let currentImageIndex = 0;
+    const totalImages = 6;
+
+    const imageAlts = [
+        "Tahamoana Farm image",
+        "Tahamoana Farm image",
+        "Tahamoana Farm image",
+        "Tahamoana Farm image",
+        "Tahamoana Farm image",
+        "Tahamoana Farm image"
+    ];
+
+    function openGallery(index) {
+        currentImageIndex = index;
+        const modal = document.getElementById('galleryModal');
+        const modalImage = document.getElementById('modalImage');
+        const imageCounter = document.getElementById('imageCounter');
+        
+        modalImage.src = `img/venue/venue_${index + 1}.jpg`;
+        modalImage.alt = imageAlts[index];
+        imageCounter.textContent = `${index + 1} / ${totalImages}`;
+        
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeGallery() {
+        const modal = document.getElementById('galleryModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % totalImages;
+        openGallery(currentImageIndex);
+    }
+
+    function previousImage() {
+        currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+        openGallery(currentImageIndex);
+    }
+
+    // Keyboard navigation for gallery
+    document.addEventListener('keydown', function(e) {
+        const modal = document.getElementById('galleryModal');
+        if (modal.style.display === 'block') {
+            if (e.key === 'ArrowRight') {
+                nextImage();
+            } else if (e.key === 'ArrowLeft') {
+                previousImage();
+            } else if (e.key === 'Escape') {
+                closeGallery();
+            }
+        }
+    });
+
+    // Close modal when clicking outside the image
+    document.getElementById('galleryModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeGallery();
+        }
+    });
     </script>
 </body>
 </html>
